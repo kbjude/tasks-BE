@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_04_27_233407) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "itemdetails", force: :cascade do |t|
     t.integer "hoursspent"
     t.integer "minutes"
     t.text "description"
-    t.integer "item_id", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_itemdetails_on_item_id"
